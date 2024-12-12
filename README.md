@@ -1,58 +1,48 @@
-# Example to-do List Application
+# Todo List App with Docker
 
-This repository is a simple to-do list manager that runs on Node.js.
+This project provides a simple Todo List application, which can be run easily using Docker Compose.
 
-## Getting started
+## Prerequisites
 
-Download [Docker Desktop](https://www.docker.com/products/docker-desktop) for Mac or Windows. Docker Compose will be automatically installed. 
-On Linux, make sure you have the latest version of [Compose](https://docs.docker.com/compose/install/).
+Make sure you have the following installed on your machine:
 
-## Clone the repository
+- [Docker](https://www.docker.com/get-started) (including Docker Compose)
+- A web browser (e.g., Chrome, Firefox)
 
-Open a terminal and clone this sample application.
+## Setup
 
-```
- git clone https://github.com/dockersamples/todo-list-app
-```
+### 1. Clone the Repository
 
-## Run the app
+Start by cloning the repository to your local machine:
 
-Navigate into the todo-list-app directory:
 
-```
+git clone https://github.com/dockersamples/todo-list-app
+2. Navigate into the Project Directory
+Once the repository is cloned, navigate into the todo-list-app directory:
+
+
+cd todo-list-app
+
+3. Build and Start the Application with Docker Compose
+Run the following command to build the images and start the application using Docker Compose:
+
+
 docker compose up -d --build
-```
+docker compose up: Starts the application containers.
+-d: Runs the containers in detached mode (in the background).
+--build: Rebuilds the images if needed.
 
-When you run this command, you should see an output like this:
+4. Access the Todo List App
+Once the application is running, open your web browser and visit the following URL:
 
-```
-[+] Running 4/4
-✔ app 3 layers [⣿⣿⣿]      0B/0B            Pulled           7.1s
-  ✔ e6f4e57cc59e Download complete                          0.9s
-  ✔ df998480d81d Download complete                          1.0s
-  ✔ 31e174fedd23 Download complete                          2.5s
-[+] Running 2/4
-  ⠸ Network todo-list-app_default           Created         0.3s
-  ⠸ Volume "todo-list-app_todo-mysql-data"  Created         0.3s
-  ✔ Container todo-list-app-app-1           Started         0.3s
-  ✔ Container todo-list-app-mysql-1         Started         0.3s
-```
+http://localhost:3000
+You should now see the Todo List application.
 
-## List the services
-
-```
-docker compose ps
-NAME                    IMAGE            COMMAND                  SERVICE   CREATED          STATUS          PORTS
-todo-list-app-app-1     node:18-alpine   "docker-entrypoint.s…"   app       24 seconds ago   Up 7 seconds    127.0.0.1:3000->3000/tcp
-todo-list-app-mysql-1   mysql:8.0        "docker-entrypoint.s…"   mysql     24 seconds ago   Up 23 seconds   3306/tcp, 33060/tcp
-```
-
-If you look at the Docker Desktop GUI, you can see the containers and dive deeper into their configuration.
-
-
-
-
-<img width="1330" alt="image" src="https://github.com/dockersamples/todo-list-app/assets/313480/d85a4bcf-e2c3-4917-9220-7d9b9a78dc54">
+Usage
+Add items: Type a task in the input field and click "Add" to add it to the list.
+Check off items: Click the checkbox next to a task to mark it as completed.
+Remove items: Click the "X" next to a task to delete it from the list.
+Stopping the Application
 
 
 ## Access the app
